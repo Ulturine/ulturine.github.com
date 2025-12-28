@@ -2,7 +2,7 @@
 <html>
   
 <head>
-<title>Move to Click Position</title>
+<title>Metal Archives Top 10 Albums Poll Results 2025</title>
 <style type="text/css">
 body {
     color: #c2b8af; /*  #FFF; */
@@ -110,66 +110,71 @@ div.albumheader {
 const poll_results =
 [
     { polldate: '',
+      ballots: 0,
       results: []
     },
     { polldate: '3rd December 2025',
+      ballots: 1,
       results:
         [
-            { band_album: 'Album A', votes: 22 },
-            { band_album: 'Album B', votes: 20 },
-            { band_album: 'Album C', votes: 18 },
-            { band_album: 'Album D', votes: 17 },
-            { band_album: 'Album E', votes: 15 },
-            { band_album: 'Album F', votes: 12 },
-            { band_album: 'Album G', votes: 9 },
-            { band_album: 'Album H', votes: 7 },
-            { band_album: 'Album I', votes: 4 },
-            { band_album: 'Album J', votes: 1 }
+            { band_album: 'Album A', points: 22 },
+            { band_album: 'Album B', points: 20 },
+            { band_album: 'Album C', points: 18 },
+            { band_album: 'Album D', points: 17 },
+            { band_album: 'Album E', points: 15 },
+            { band_album: 'Album F', points: 12 },
+            { band_album: 'Album G', points: 9 },
+            { band_album: 'Album H', points: 7 },
+            { band_album: 'Album I', points: 4 },
+            { band_album: 'Album J', points: 1 }
         ]
     },
     { polldate: '4th December 2025',
+      ballots: 2,
       results:
         [
-            { band_album: 'Album B', votes: 25 },
-            { band_album: 'Album A', votes: 24 },
-            { band_album: 'Album C', votes: 20 },
-            { band_album: 'Album D', votes: 19 },
-            { band_album: 'Album E', votes: 16 },
-            { band_album: 'Album F', votes: 13 },
-            { band_album: 'Album G', votes: 9 },
-            { band_album: 'Album H', votes: 8 },
-            { band_album: 'Album I', votes: 4 },
-            { band_album: 'Album K', votes: 2 }
+            { band_album: 'Album B', points: 25 },
+            { band_album: 'Album A', points: 24 },
+            { band_album: 'Album C', points: 20 },
+            { band_album: 'Album D', points: 19 },
+            { band_album: 'Album E', points: 16 },
+            { band_album: 'Album F', points: 13 },
+            { band_album: 'Album G', points: 9 },
+            { band_album: 'Album H', points: 8 },
+            { band_album: 'Album I', points: 4 },
+            { band_album: 'Album K', points: 2 }
         ]
     },
     { polldate: '5th December 2025',
+      ballots: 3,
       results:
         [
-            { band_album: 'Album A', votes: 34 },
-            { band_album: 'Album B', votes: 33 },
-            { band_album: 'Album C', votes: 26 },
-            { band_album: 'Album F', votes: 24 },
-            { band_album: 'Album D', votes: 20 },
-            { band_album: 'Album E', votes: 18 },
-            { band_album: 'Album G', votes: 13 },
-            { band_album: 'Album I', votes: 12 },
-            { band_album: 'Album K', votes: 10 },
-            { band_album: 'Album J', votes: 9 }
+            { band_album: 'Album A', points: 34 },
+            { band_album: 'Album B', points: 33 },
+            { band_album: 'Album C', points: 26 },
+            { band_album: 'Album F', points: 24 },
+            { band_album: 'Album D', points: 20 },
+            { band_album: 'Album E', points: 18 },
+            { band_album: 'Album G', points: 13 },
+            { band_album: 'Album I', points: 12 },
+            { band_album: 'Album K', points: 10 },
+            { band_album: 'Album J', points: 9 }
         ]
     },
     { polldate: '6th December 2025',
+      ballots: 4,
       results:
         [
-            { band_album: 'Album A', votes: 41 },
-            { band_album: 'Album B', votes: 37 },
-            { band_album: 'Album F', votes: 33 },
-            { band_album: 'Album C', votes: 31 },
-            { band_album: 'Album D', votes: 23 },
-            { band_album: 'Album X', votes: 21 },
-            { band_album: 'Album E', votes: 18 },
-            { band_album: 'Album G', votes: 16 },
-            { band_album: 'Album J', votes: 13 },
-            { band_album: 'Album I', votes: 12 }
+            { band_album: 'Album A', points: 41 },
+            { band_album: 'Album B', points: 37 },
+            { band_album: 'Album F', points: 33 },
+            { band_album: 'Album C', points: 31 },
+            { band_album: 'Album D', points: 23 },
+            { band_album: 'Album X', points: 21 },
+            { band_album: 'Album E', points: 18 },
+            { band_album: 'Album G', points: 16 },
+            { band_album: 'Album J', points: 13 },
+            { band_album: 'Album I', points: 12 }
         ]
     }
 ];
@@ -510,7 +515,7 @@ function setResults( result_set )
     pollday.innerHTML = result_set.polldate;
 
     var ballotcount = document.getElementById( 'ballot_count' );
-    ballotcount.innerHTML = result_set.ballots + ' ballots';
+    ballotcount.innerHTML = result_set.ballots + ( result_set.ballots == 1 ? ' ballot' : ' ballots' );
 
     // Mark positions of current in-view boxes (for reuse in next stage)
     for( let i = 0; i < 2 * itemCount; i++)
@@ -582,7 +587,7 @@ function setResults( result_set )
 </head>
  
 <body>
-<h2>Metal Archives Top 10 Album Poll Results 2025</h2>
+<h2>Metal Archives Top 10 Albums Poll Results 2025</h2>
 <!--
     <div style='background-color: #208080' class="albumheader"><p class="result_pos"><b>Position</b></p><p class="title"><b>Album</b></p><p class="votes"><b>Votes</b></p></div>
 -->
@@ -611,7 +616,7 @@ function setResults( result_set )
 
   <input type="range" class="day_slider" id="day_in_poll" oninput="onSlide()">
   <div id="poll_day" style="margin-left: 10px">None</div>
-  <div id="ballot_count" style="margin-left: auto;">nnn ballots</div>
+  <div id="ballot_count" style="margin-left: auto; margin-right: 5px">nnn ballots</div>
 </div>
 
 <!-- Testing stuff -->
